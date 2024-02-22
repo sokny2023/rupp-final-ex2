@@ -1,6 +1,6 @@
 package demo;
 
-public class Sale implements DiscountRate {
+public class Sale {
     Customer customer;
     private String date;
     private double serviceExpense;
@@ -46,13 +46,21 @@ public class Sale implements DiscountRate {
         this.productExpense = productExpense;
     }
 
-    @Override
-    public double getServiceMemberDiscount() {
-        return 0;
+    public double getTotalExpense() {
+        return (serviceExpense - serviceExpense * customer.getServiceMemberDiscount(customer.getCustomerType())) +
+                (productExpense - productExpense * customer.getProductMemberDiscount(customer.getCustomerType()));
     }
 
-    @Override
-    public double getProductMemberDiscount() {
-        return 0;
+    public void displayInfo() {
+        System.out.println("=".repeat(40));
+        System.out.println("Customer Name: " + customer.getCustomerName());
+        System.out.println("Customer Type: " + customer.getCustomerType());
+        System.out.println("Date: " + getDate());
+        System.out.println("Service Expense: " + getServiceExpense());
+        System.out.println("Product Expense: " + getProductExpense());
+        System.out.println("Total Expense: " + getTotalExpense());
+        System.out.println("=".repeat(40));
+        System.out.println();
     }
+
 }

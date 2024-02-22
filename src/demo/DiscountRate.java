@@ -1,6 +1,6 @@
 package demo;
 
 public interface DiscountRate {
-    double getServiceMemberDiscount();
-    double getProductMemberDiscount();
+    double getServiceMemberDiscount(String customerType);
+    double getProductMemberDiscount(String customerType);
 }

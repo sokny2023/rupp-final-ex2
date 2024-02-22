@@ -27,14 +27,31 @@ public class Customer implements DiscountRate{
     }
 
     @Override
-    public double getServiceMemberDiscount() {
+    public double getServiceMemberDiscount(String customerType) {
+        switch (customerType.toLowerCase()) {
+            case "premium":
+                return 0.2;
+            case "gold":
+                return 0.15;
+            case "silver":
+                return 0.1;
+            default:
+                return 0;
+        }
 
-        return 0;
     }
 
     @Override
-    public double getProductMemberDiscount() {
-        return 0;
+    public double getProductMemberDiscount(String customerType) {
+        switch (customerType.toLowerCase()) {
+            case "premium":
+                return 0.1;
+            case "gold":
+            case "silver":
+                return 0.1;
+            default:
+                return 0.0;
+        }
     }
 
 }
