@@ -3,7 +3,6 @@ package demo;
 public class Customer implements DiscountRate{
     private String customerName;
     private String CustomerType;
-    Customer(){};
 
     public Customer(String customerName, String customerType) {
         this.customerName = customerName;
@@ -28,30 +27,19 @@ public class Customer implements DiscountRate{
 
     @Override
     public double getServiceMemberDiscount(String customerType) {
-        switch (customerType.toLowerCase()) {
-            case "premium":
-                return 0.2;
-            case "gold":
-                return 0.15;
-            case "silver":
-                return 0.1;
-            default:
-                return 0;
-        }
-
+        return switch (customerType.toLowerCase()) {
+            case "premium" -> 0.2;
+            case "gold" -> 0.15;
+            case "silver" -> 0.1;
+            default -> 0;
+        };
     }
 
     @Override
     public double getProductMemberDiscount(String customerType) {
-        switch (customerType.toLowerCase()) {
-            case "premium":
-                return 0.1;
-            case "gold":
-            case "silver":
-                return 0.1;
-            default:
-                return 0.0;
-        }
+        return switch (customerType.toLowerCase()) {
+            case "premium","gold", "silver" -> 0.1;
+            default -> 0.0;
+        };
     }
-
 }

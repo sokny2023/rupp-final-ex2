@@ -5,7 +5,6 @@ public class Sale {
     private String date;
     private double serviceExpense;
     private double productExpense;
-    Sale(){};
 
     public Sale(Customer customer, String date, double serviceExpense, double productExpense) {
         this.customer = customer;
@@ -53,14 +52,13 @@ public class Sale {
 
     public void displayInfo() {
         System.out.println("=".repeat(40));
-        System.out.println("Customer Name: " + customer.getCustomerName());
-        System.out.println("Customer Type: " + customer.getCustomerType());
-        System.out.println("Date: " + getDate());
-        System.out.println("Service Expense: " + getServiceExpense());
-        System.out.println("Product Expense: " + getProductExpense());
-        System.out.println("Total Expense: " + getTotalExpense());
+        System.out.println(" ".repeat(5)+"Customer Name: " + customer.getCustomerName());
+        System.out.println(" ".repeat(5)+"Customer Type: " + customer.getCustomerType());
+        System.out.println(" ".repeat(5)+"Date: " + getDate());
+        System.out.println(" ".repeat(5)+"Service Expense: " + getServiceExpense());
+        System.out.println(" ".repeat(5)+"Product Expense: " + getProductExpense());
+        System.out.println(" ".repeat(5)+"Total Expense: " + getTotalExpense());
         System.out.println("=".repeat(40));
         System.out.println();
     }
-
 }
