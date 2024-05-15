@@ -17,6 +17,6 @@ public class Main {
 
         Customer customer4 = new Customer("Lovi Hola", "Nomral");
         Sale sale4 = new Sale(customer4, "2024-02-23", 750.0, 400.0);
-        sale4.displayInfo();
+        sale4.displayInfo()
     }
 }
